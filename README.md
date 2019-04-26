@@ -1,5 +1,19 @@
 # Boot Manager for Cockpit CMS
 
+## Features
+
+* load modules in a specific order
+* load modules only if you need them (api calls don't need to load admin ui addons)
+
+## Installation
+
+Copy this repository into `/addons` and name it `BootManager` or
+
+```bash
+cd path/to/cockpit
+git clone https://github.com/raffaelj/cockpit_BootManager.git addons/BootManager
+```
+
 ## Usage
 
 Disable all available modules and addons in `config/config.yaml`, except the BootManager Addon, e. g.:
@@ -46,6 +60,10 @@ bootmanager:
         - Collections
         - Singletons
     lib:
+        - Collections
+        - Singletons
+        - Forms
+    cli:
         - Collections
         - Singletons
         - Forms

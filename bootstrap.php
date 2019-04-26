@@ -1,4 +1,14 @@
 <?php
+/**
+ * Boot Manater for Cockpit CMS
+ * 
+ * @see       https://github.com/raffaelj/cockpit_BootManager
+ * @see       https://github.com/agentejo/cockpit/
+ * 
+ * @version   0.1.1
+ * @author    Raffael Jesche
+ * @license   MIT
+ */
 
 $bootManager = $app->retrieve('bootmanager', null);
 
@@ -16,6 +26,10 @@ if (COCKPIT_ADMIN && !COCKPIT_API_REQUEST && isset($bootManager['ui'])) {
 
 if (!COCKPIT_ADMIN && !COCKPIT_API_REQUEST && isset($bootManager['lib'])) {
     $bootOrder = $bootManager['lib'];
+}
+
+if (COCKPIT_CLI && isset($bootManager['cli'])) {
+    $bootOrder = $bootManager['cli'];
 }
 
 if (empty($bootOrder) && isset($bootManager['global'])) {
