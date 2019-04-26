@@ -1,6 +1,6 @@
 <?php
 /**
- * Boot Manater for Cockpit CMS
+ * Boot Manager for Cockpit CMS
  * 
  * @see       https://github.com/raffaelj/cockpit_BootManager
  * @see       https://github.com/agentejo/cockpit/
