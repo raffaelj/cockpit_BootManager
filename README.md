@@ -16,64 +16,48 @@ git clone https://github.com/raffaelj/cockpit_BootManager.git addons/BootManager
 
 ## Usage
 
-Disable all available modules and addons in `config/config.yaml`, except the BootManager Addon, e. g.:
+Put only this addon in your addon folder and store all other addons in `/addons/BootManager/addons/`.
+
+By default, all addons are disabled. Log into Cockpit, go to *Settings --> BootManager* and enable all addons for your specific needs or change the boot order.
+
+If you want to change core modules or addons in the original addon folder `cockpit/addons/`, you have to disable them manually in your config file `/config/config.yaml`.
 
 ```yaml
 modules.disabled:
     - Collections
     - Singletons
     - Forms
-    - phpLiteAdmin
-    - EditorFormats
-    - FormValidation
-    - Helpers
-    - Logger
-    - SelectRequestOptions
-    - UniqueSlugs
 ```
 
-Now specify the modules, you want to load.
-
-Global option for all use cases:
+If you don't want to use the user interface, you can change the settings via config file:
 
 ```yaml
 bootmanager:
-    global:
-        - Collections
-        - Singletons
-        - Forms
-        - UniqueSlugs
+    ui:                     # addons for your pretty admin UI
+        Logger: true
+        Collections: true
+        Singletons: true
+        Forms: true
+        UniqueSlugs: true
+    api:                    # addons for api requests
+        Collections: true
+        Singletons: true
+        UniqueSlugs: true
+    cli:                    # addons for command line usage
+        Collections: true
+        Singletons: true
+        Forms: true
+        UniqueSlugs: true
+    lib:                    # addons for library usage (e. g. with CpMultiplane)
+        Collections: true
+        Singletons: true
+        Forms: true
 ```
-
-Load different modules for admin ui, api request or when using Cockpit as a library.
-
-```yaml
-bootmanager:
-    ui:
-        - Logger
-        - Collections
-        - Singletons
-        - Forms
-        - UniqueSlugs
-        - phpLiteAdmin
-    api:
-        - Collections
-        - Singletons
-    lib:
-        - Collections
-        - Singletons
-        - Forms
-    cli:
-        - Collections
-        - Singletons
-        - Forms
-```
-
 
 ## To do:
 
-* thinking about implementing it to the core
-* Boot Manager UI
-* rewrite to object oriented module style (makes an optional UI much easier)
-* maybe granular options for user groups or specific routes
-* thinking about a real addon manager
+* [x] Boot Manager UI
+* [ ] performance tests
+* [ ] define `loadmodules` via GUI
+* [ ] maybe granular options for user groups or specific routes
+* [ ] thinking about a real addon manager
