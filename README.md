@@ -1,5 +1,9 @@
 # Boot Manager for Cockpit CMS
 
+**draft/experimental**
+
+After testing this addon for a while, I decided, not to use it anymore. I always forgot to enable the needed modules for specific use cases... Maybe the idea could be a base for an addon manager in the future...
+
 ## Features
 
 * load modules in a specific order
