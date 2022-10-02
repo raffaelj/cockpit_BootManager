@@ -1,5 +1,11 @@
 # Boot Manager for Cockpit CMS
 
+**This addon is not compatible with Cockpit CMS v2.**
+
+See also [Cockpit CMS v1 docs](https://v1.getcockpit.com/documentation), [Cockpit CMS v1 repo](https://github.com/agentejo/cockpit) and [Cockpit CMS v2 docs](https://getcockpit.com/documentation/), [Cockpit CMS v2 repo](https://github.com/Cockpit-HQ/Cockpit).
+
+---
+
 **draft/experimental**
 
 After testing this addon for a while, I decided, not to use it anymore. I always forgot to enable the needed modules for specific use cases... Maybe the idea could be a base for an addon manager in the future...
